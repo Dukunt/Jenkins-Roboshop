@@ -6,6 +6,7 @@ pipeline {
                 script {
                     sh """
                       echo " This is Testing stage"
+                      echo " Successful"
                     """
                 }
             }
@@ -15,6 +16,7 @@ pipeline {
                 script {
                     sh """
                       echo " This is Building stage"
+                      echo " Successful"
                     """
                 }
             }
@@ -24,6 +26,7 @@ pipeline {
                 script {
                     sh """
                       echo " This is Deployment stage"
+                      echo " Successful"
                     """
                 }
             }
