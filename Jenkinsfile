@@ -2,7 +2,8 @@ pipeline {
     agent any
     environment {
         appversion = ""
-        // # ACC_ID = 079662785129
+        ACC_ID = 079662785129
+        region = "us-east-1"
     }
 
     stages {
@@ -30,10 +31,7 @@ pipeline {
         stage("Build the image") {
             steps{
                 script{
-                    sh"""
-                     docker build -t catalogue:${appversion} .
-                    """
-                  /*  withAWS(credentials:' ',region: 'us-east-1') {
+                        withAWS(credentials:'aws-creds ', region: "${region}") {
                         sh"""
                             aws ecr get-login-password --region ${region} | 
                             docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
