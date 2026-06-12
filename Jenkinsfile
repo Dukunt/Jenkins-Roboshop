@@ -1,12 +1,15 @@
 pipeline {
     agent any
+    environment {
+        ENVI = "dev"
+    }
     stages{
         stage("testing"){
             steps {
                 script {
                     sh """
                       echo " This is Testing stage"
-                      echo " Successfully done"
+                      echo "$ENVI"
                     """
                 }
             }
@@ -16,7 +19,7 @@ pipeline {
                 script {
                     sh """
                       echo " This is Building stage"
-                      echo " Successfully done"
+                      echo "$ENVI"
                     """
                 }
             }
@@ -26,7 +29,7 @@ pipeline {
                 script {
                     sh """
                       echo " This is Deployment stage"
-                      echo " Successfully done"
+                      echo "$ENVI"
                       
                     """
                 }
