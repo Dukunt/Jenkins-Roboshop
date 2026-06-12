@@ -34,6 +34,9 @@ pipeline {
                     sh """
                       echo " This is Building stage"
                       echo "$ENVI"
+                      echo "${params.PERSON}"
+                      echo "${params.BIOGRAPHY}"
+                      echo "${params.PASSWORD}"
                     """
                 }
             }
