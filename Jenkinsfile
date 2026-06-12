@@ -21,10 +21,9 @@ pipeline {
                     sh """
                       echo " This is Testing stage"
                       echo "$ENVI"
-                      echo "${param.PERSON}"
-                      echo "${param.BIOGRAPHY}"
-                      echo "${TOGGLE}"
-                      echo "${param.PASSWORD}"
+                      echo "${params.PERSON}"
+                      echo "${params.BIOGRAPHY}"
+                      echo "${params.PASSWORD}"
                     """
                 }
             }
