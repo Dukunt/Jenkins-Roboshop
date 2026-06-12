@@ -8,7 +8,7 @@ pipeline {
 
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
 
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
@@ -34,14 +34,15 @@ pipeline {
                     sh """
                       echo " This is Building stage"
                       echo "$ENVI"
-                      echo "${params.PERSON}"
-                      echo "${params.BIOGRAPHY}"
-                      echo "${params.PASSWORD}"
+                   
                     """
                 }
             }
         }
         stage("Deployment"){
+            when {
+                expression  {"${params.DEPLOY}"== "true"}
+            }
             steps {
                 script {
                     sh """
